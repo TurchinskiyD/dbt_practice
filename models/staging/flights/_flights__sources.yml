@@ -10,7 +10,7 @@ sources:
       - name: model 
         description: Name of aircraft
       - name: range
-        description: None
+        description: Unknown field
     - name: airports
       description: List of airports
       columns:
@@ -33,3 +33,21 @@ sources:
         description: Number of seat
       - name: fare_conditions
         description: Conditions of fare
+    - name: bookings
+      description: Bookings of flights
+      columns:
+      - name: book_ref
+        description: Reference of booking
+      - name: book_date
+        description: Date of booking
+      - name: total_amount
+        description: Total amount of booking
+      freshness:
+        warn_after:
+          count: 6
+          period: hour
+        error_after:
+          count: 1
+          period: day
+        filter: current_timestamp::date - book_date::date < 3
+      loaded_at_field: book_date::timestamp
