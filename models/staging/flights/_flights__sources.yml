@@ -1,6 +1,35 @@
 sources:
   - name: demo_src
+    description: Data from DB aviaflights
     tables:
     - name: aircrafts
+      description: Model of aircrafts
+      columns:
+      - name: aircraft_code
+        description: Code of aircraft
+      - name: model 
+        description: Name of aircraft
+      - name: range
+        description: None
     - name: airports
+      description: List of airports
+      columns:
+      - name: airport_code
+        description: Code of airport
+      - name: airport_name
+        description: Name of airport
+      - name: city
+        description: City of airport
+      - name: coordinates
+        description: Coordinates of airport
+      - name: timezone
+        description: Timezone of airport
     - name: seats
+      description: Seats on aircrafts
+      columns:
+      - name: aircraft_code
+        description: Code of aircraft
+      - name: seat_no
+        description: Number of seat
+      - name: fare_conditions
+        description: Conditions of fare
