@@ -51,3 +51,70 @@ sources:
           period: day
         filter: current_timestamp::date - book_date::date < 3
       loaded_at_field: book_date::timestamp
+    - name: boarding_passes
+      description: Boarding passes of flights
+      columns:
+      - name: ticket_no
+        description: Number of ticket
+      - name: flight_id
+        description: ID of flight
+      - name: boarding_no
+        description: Number of boarding
+      - name: seat_no
+        description: Number of seat_no
+    - name: flights
+      description: Flights
+      columns:
+      - name: flight_id
+        description: ID of flight
+      - name: flight_no
+        description: Number of flight
+      - name: scheduled_departure
+        description: Scheduled departure
+      - name: scheduled_arrival
+        description: Scheduled arrival
+      - name: departure_airport
+        description: Departure airport
+      - name: arrival_airport
+        description: Arrival airport
+      - name: status
+        description: Status of flight
+      - name: aircraft_code
+        description: Code of aircraft
+      - name: actual_departure
+        description: Actual departure
+      - name: actual_arrival
+        description: Actual arrival
+      freshness:
+        warn_after:
+          count: 6
+          period: hour
+        error_after:
+          count: 1
+          period: day
+        filter: actual_departure IS NOT NULL AND actual_arrival IS NOT NULL
+      loaded_at_field: actual_departure
+    - name: ticket_flights
+      description: Info about tickets of flights
+      columns:
+      - name: ticket_no
+        description: Number of ticket
+      - name: flight_id
+        description: ID of flight
+      - name: fare_conditions
+        description: Conditions of fare
+      - name: amount
+        description: Amount of ticket
+    - name: tickets
+      description: Info about selling tickets
+      columns:
+      - name: ticket_no
+        description: Number of ticket
+      - name: book_ref
+        description: Reference of booking
+      - name: passenger_id
+        description: ID of passenger
+      - name: passenger_name
+        description: Name of passenger
+      - name: contact_data
+        description: Contact data of passenger
