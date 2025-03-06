@@ -18,3 +18,7 @@ models:
   dbt_practice:
     example:
       +materialized: view
+    
+seeds:
+  dbt_course_practice:
+    schema: seeds

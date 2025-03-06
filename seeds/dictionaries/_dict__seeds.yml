@@ -1,0 +1,23 @@
+seeds:
+  - name: city_region
+    description: City and region dictionary
+    config:
+      column_types:
+        city: varchar(50)
+        region: varchar(50)
+      #delimiter: ";"
+    columns:
+      - name: city
+        tests:
+          - not_null
+          - unique
+  - name: empl_aviacompany
+    description: Employees of aviation companies
+    config:
+      column_types:
+        passenger_id: varchar(20)
+    columns:
+      - name: passenger_id
+        tests:
+          - not_null
+          - unique

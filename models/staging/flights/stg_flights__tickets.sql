@@ -11,4 +11,3 @@ select
       contact_data
 from
     {{ source('demo_src', 'tickets') }}
-    

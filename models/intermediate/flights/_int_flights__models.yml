@@ -15,7 +15,7 @@ models:
       status: "in_development"
     columns:
       - name: book_ref
-        data_type: varchar(6)
+        data_type: varchar(8)
         constraints:
           - type: not_null
       - name: book_date
