@@ -1,14 +1,13 @@
 {{
     config(
-        materialized = 'table'
+        materialized = 'table',
+        tags = ['bookings']
     )
 }}
 
 select 
     book_ref, 
     book_date, 
-    total_amount,
-    total_amount * 0.1 as tax_amount
+    total_amount
 from 
     {{ source('demo_src', 'bookings') }}
-    
