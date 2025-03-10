@@ -38,6 +38,13 @@ sources:
       columns:
       - name: book_ref
         description: Reference of booking
+        data_type: varchar(8)
+        tags:
+          - "fact"
+          - "flights"
+        tests:
+          - unique
+          - not_null
       - name: book_date
         description: Date of booking
       - name: total_amount
@@ -118,3 +125,25 @@ sources:
         description: Name of passenger
       - name: contact_data
         description: Contact data of passenger
+  - name: snapshot
+    tables:
+    - name: dim_flights__airports
+      description: Dimension of airports  dbt_scd_id, dbt_updated_at, dbt_valid_from, 
+      columns:
+      - name: airport_code
+        description: Code of airport
+      - name: airport_name
+        description: Name of airport
+      - name: city
+        description: City of airport
+      - name: coordinates
+        description: Coordinates of airport
+      - name: timezone
+        description: Timezone of airport
+      - name: dbt_scd_id
+        description: SCD ID
+      - name: dbt_updated_at
+        description: Updated at
+      - name: dbt_valid_to
+        description: Valid to
+    - name: snap_city_region

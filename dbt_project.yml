@@ -16,9 +16,10 @@ clean-targets:
 
 models:
   dbt_practice:
-    example:
-      +materialized: view
-    
+  +meta:
+    owner: "sql_file_owner@gmail.com"
+    year_created: 2025
+
 seeds:
   dbt_course_practice:
     schema: seeds

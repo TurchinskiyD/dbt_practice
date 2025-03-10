@@ -9,10 +9,10 @@ models:
       - v: 1
     config:
       contract: {enforced: true}
-    meta:
-      owner: "example_email@gmail.com"
-      contact_mob: "+380123456789"
-      status: "in_development"
+      meta:
+        owner: "sql_file_owner@gmail.com"
+        status: "in_development"
+        contact_mob: "+380123456789"
     columns:
       - name: book_ref
         data_type: varchar(8)
