@@ -15,6 +15,7 @@ select
     aircraft_code,
     actual_departure,
     actual_arrival,
-    current_timestamp as load_data
+    current_timestamp as load_data,
+    {{ concat_columns(['flight_id', 'flight_no'])}} AS flight_info
 from 
     {{ ref('stg_flights__flights') }}

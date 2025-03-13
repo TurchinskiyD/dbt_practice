@@ -9,7 +9,7 @@
 select 
     book_ref, 
     book_date, 
-    total_amount
+    {{ cent_to_dolar('total_amount')}} as total_amount
 from 
     {{ source('demo_src', 'bookings') }}
 
