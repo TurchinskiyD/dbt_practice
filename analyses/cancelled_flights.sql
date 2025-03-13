@@ -3,8 +3,6 @@ SELECT
     COUNT(*) AS cancelled_flights
 FROM 
    {{ ref('stg_flights__flights') }}
-WHERE departure_airport = 'DME'
+WHERE departure_airport = 'CTU'
     AND status = 'Cancelled'
 GROUP BY scheduled_departure::date
-
---DME
